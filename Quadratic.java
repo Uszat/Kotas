@@ -1,39 +1,79 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
+
 public class Quadratic {
-    public static void main(String[] args){
-       square();
+    static double a =0, b= 0, c =0;
+
+    public static void main(String[] args) {
+
+        boolean again = true;
+        while (again) {
+            square();
+            System.out.println("Exit the program? 1 - yes, 0 - no");
+            Scanner scan = new Scanner(System.in);
+            int ask;
+            ask = scan.nextInt();
+            if (ask == 1) {
+                again = false;
+            } else {
+                again = true;
+            }
+        }
     }
 
+    public static void inputA(){
+  //      double a = 0;
+        Scanner scan = new Scanner(System.in);
+        try{
+            System.out.println("Input first a");
+            a=scan.nextDouble();
+        }catch(InputMismatchException e){
+            System.out.println("Wrong input!");
+            inputA();
+        }
+    }
+
+    public static void inputB(){
+//        double b = 0;
+        Scanner scan = new Scanner(System.in);
+        try{
+            System.out.println("Input first b");
+            b=scan.nextDouble();
+        }catch(InputMismatchException e){
+            System.out.println("Wrong input!");
+            inputB();
+        }
+    }
+
+    public static void inputC(){
+
+        Scanner scan = new Scanner(System.in);
+        try{
+            System.out.println("Input first c");
+            c=scan.nextDouble();
+        }catch(InputMismatchException e){
+            System.out.println("Wrong input!");
+            inputC();
+        }
+    }
+
+
+
     public static void square (){
-        double a = 0, b = 0, c = 0;
+
         boolean repet = true;
         int check = 0;
         Scanner scan = new Scanner(System.in);
-        while(repet) {
-            try {
-                System.out.println("Input first a");
-                a = scan.nextDouble();
-            } catch (InputMismatchException e) {
-                System.out.println("Wrong input!");
-                check = 1;
-            }
-            if (check == 1) {
-                repet = true;
-            } else {
-                repet = false;
-            }
-        }
-        System.out.println("Input b");
-        b = scan.nextDouble();
-        System.out.println("Input c");
-            c = scan.nextDouble();
-        /*
-        catch(InputMismatchException e){
-            System.out.println("Wrong input!");
-            System.exit(0);
-        }*/
+
+
+        inputA();
+        inputB();
+        inputC();
+
+
+
         if (a == 0) {
             System.out.println("ERROR: not a quadratic function");
         } else {
